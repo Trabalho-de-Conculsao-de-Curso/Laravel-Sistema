@@ -3,14 +3,15 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import CreateProduct from './pages/CreateProduct';
+import Index from './pages/index'
 
 function App() {
   return (
     <Router>
-      <div className="container mx-auto p-4">
-        <Header />
+      <div >
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/index" element={<Index />} />
           <Route path="/create" element={<CreateProduct />} />
         </Routes>
       </div>
