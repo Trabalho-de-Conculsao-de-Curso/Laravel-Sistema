@@ -14,39 +14,39 @@ export default function Home() {
             <div className='bg-white/10 group rounded flex item-center gap-4 overflow-hidden hover:bg-white/20 transition-colors'>
               <strong>CSGO</strong>
               <button className="p-2 rounded-full bg-green-500 text-black ml-auto mr-8 size-10 mt-2 invisible group-hover:visible">
-                <Play />
+                
               </button>
             </div>
             <div className='bg-white/10 group rounded flex item-center gap-4 overflow-hidden hover:bg-white/20 transition-colors'>
              
               <strong>EXCEl</strong>
               <button className="p-2 rounded-full bg-green-500 text-black ml-auto mr-8 size-10 mt-2 invisible group-hover:visible">
-                <Play />
+                
               </button>
             </div>
             <div className='bg-white/10 group rounded flex item-center gap-4 overflow-hidden hover:bg-white/20 transition-colors'>
               
               <strong>cego</strong>
               <button className="p-2 rounded-full bg-green-500 text-black ml-auto mr-8 size-10 mt-2 invisible group-hover:visible">
-                <Play />
+                
               </button>
             </div>
             <div className='bg-white/10 group rounded flex item-center gap-4 overflow-hidden hover:bg-white/20 transition-colors'>
               <strong>Csgo</strong>
               <button className="p-2 rounded-full bg-green-500 text-black ml-auto mr-8 size-10 mt-2 invisible group-hover:visible">
-                <Play />
+                
               </button>
             </div>
             <div className='bg-white/10 group rounded flex item-center gap-4 overflow-hidden hover:bg-white/20 transition-colors'>
               <strong>teste</strong>
               <button className="p-2 rounded-full bg-green-500 text-black ml-auto mr-8 size-10 mt-2 invisible group-hover:visible">
-                <Play />
+                
               </button>
             </div>
             <div className='bg-white/10 group rounded flex item-center gap-4 overflow-hidden hover:bg-white/20 transition-colors'>
               <strong>teste</strong>
               <button className="p-2 rounded-full bg-green-500 text-black ml-auto mr-8 size-10 mt-2 invisible group-hover:visible">
-                <Play />
+                
               </button>
             </div>
           </div>
