@@ -2,18 +2,18 @@ import { Home as HomeIcon, Search, Library, ChevronLeft, ChevronRight, Play,} fr
 
 export function Sidebar() {
     return(
-        <aside className="w-72 bg-zinc-950 p-6 border border-zinc-600">
+        <aside className="w-60 bg-neutral-900 p-6 border-r border-zinc-800">
           <nav className="space-y-5 text-orange-400">
             <button className="flex items-center gap-3 text-xs font-semibold text-zinc-200">
-              <HomeIcon className='text-orange-400'/>
+              <HomeIcon className='text-purple-600'/>
               HOME
             </button>
             <button className="flex items-center gap-3 text-xs font-semibold text-zinc-200 ">
-              <Search className='text-orange-400'/>
+              <Search />
               PROCURAR
             </button>
             <button className="flex items-center gap-3 text-xs font-semibold text-zinc-200">
-              <Library className='text-orange-400'/>
+              <Library/>
               SEU HISTORICO 
             </button>
           </nav>

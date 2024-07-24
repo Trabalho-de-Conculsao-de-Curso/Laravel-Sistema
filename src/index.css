@@ -1,6 +1,21 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+AR:wght@100..400&display=swap');
+
+.playwrite-ar{
+  font-family: "Playwrite AR", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.mukta-extralight {
+  font-family: "Mukta", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+
 
 body {
   margin: 0;
