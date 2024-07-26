@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdutoFinalController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SoftwareController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CorsMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,7 +23,10 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource('/produtos', ProdutoController::class);
+//Route::resource('/produtos', ProdutoController::class);
+Route::middleware([CorsMiddleware::class])->group(function () {
+    Route::get('/produtos', [ProdutoController::class, 'index']);
+});
 Route::resource('/softwares', SoftwareController::class);
 
 Route::get('/home', [ProdutoFinalController::class, 'create'])->name('home.create');

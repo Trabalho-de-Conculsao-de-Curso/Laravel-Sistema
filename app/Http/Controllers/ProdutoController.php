@@ -12,14 +12,11 @@ use Illuminate\Http\Request;
 class ProdutoController extends Controller
 {
 
-    public function index()
-    {
-        $produtos = Produto::with('marca','especificacoes', 'preco', 'lojaOnline')->paginate(10);
-        return view('produtos.index', [
-            'produtos' => $produtos
-        ]);
-
+    public function index(){
+    $produtos = Produto::with('marca', 'especificacoes', 'preco', 'lojaOnline')->get();
+    return response()->json($produtos);
     }
+
 
     public function create()
     {
