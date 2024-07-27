@@ -40,7 +40,6 @@ class ProdutoFinalController extends Controller
         $softwaresData = $softwaresSelecionados->toArray();
         $produtosData = $produtos->toArray();
 
-
         $recommendations = $this->geminiAPIService->getRecommendations($softwaresData, $produtosData);
 
         $produtoFinals = [];
@@ -60,11 +59,11 @@ class ProdutoFinalController extends Controller
             $produtoFinal->save();
 
             $produtoFinals[] = $produtoFinal;
-
         }
 
         return view('resultado', compact('produtoFinals'));
     }
+
 
     public function store(Request $request)
     {

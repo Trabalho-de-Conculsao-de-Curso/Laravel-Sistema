@@ -14,7 +14,7 @@ class ProdutoController extends Controller
 
     public function index()
     {
-        $produtos = Produto::with('marca','especificacoes', 'preco', 'lojaOnline')->get();
+        $produtos = Produto::with('marca','especificacoes', 'preco', 'lojaOnline')->paginate(10);
         return view('produtos.index', [
             'produtos' => $produtos
         ]);
@@ -62,9 +62,6 @@ class ProdutoController extends Controller
         $lojaOnline->urlLoja = $request->input('urlLojaOnline');
         $lojaOnline->save();
 
-
-
-
         // Criar o produto associado à marca
         $produto = new Produto();
         $produto->nome = $request->input('nome');
@@ -82,32 +79,29 @@ class ProdutoController extends Controller
     public function show(Request $request)
     {
         $search = $request->input('search');
-        $results = Produto::where(function($query) use ($search) {
-            $query->where('nome', 'like', "%$search%");
 
+        $results = Produto::where(function($query) use ($search) {
+            $query->where('nome', 'like', "%$search%")
+                ->orWhere('preco', 'like', "%$search%")
+                ->orWhere('lojasOnline', 'like', "%$search%");
         })
             ->orWhereHas('marca', function($query) use ($search) {
                 $query->where('nome', 'like', "%$search%")
                     ->orWhere('qualidade', 'like', "%$search%")
                     ->orWhere('garantia', 'like', "%$search%");
             })
-
             ->orWhereHas('especificacoes', function($query) use ($search) {
                 $query->where('detalhes', 'like', "%$search%");
-
             })
-
             ->orWhereHas('lojaOnline', function($query) use ($search) {
                 $query->where('nome', 'like', "%$search%")
                     ->orWhere('urlLoja', 'like', "%$search%");
             })
-
             ->orWhereHas('preco', function($query) use ($search) {
                 $query->where('valor', 'like', "%$search%")
                     ->orWhere('moeda', 'like', "%$search%");
             })
-
-            ->get();
+            ->paginate(10)->appends(['search' => $search]); // Adicionando o parâmetro de busca à paginação
 
         return view('produtos.searchProduto', compact('results'));
     }

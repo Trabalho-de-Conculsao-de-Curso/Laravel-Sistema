@@ -12,16 +12,23 @@ class ProdutoFinal extends Model
     protected $fillable = [
         'nome',
         'categoria'
-
     ];
     protected $table = 'produto_final';
-    public function produtos()
+
+    public function getPrecoTotalFormatado()
     {
-        return $this->belongsToMany(Produto::class, 'produto_final_produto', 'produto_final_id', 'produto_id');
+        // Divide o preço total por 100 e formata o valor
+        $precoTotal = $this->preco_total / 100;
+        return number_format($precoTotal, 2, ',', '.');
     }
 
-    public function softwares()
+    /*public function produtos() -- Mateus 28/06/2024 desvinculando de produtos
+    {
+        return $this->belongsToMany(Produto::class, 'produto_final_produto', 'produto_final_id', 'produto_id');
+    }*/
+
+    /*public function softwares() Mateus V. 28/06/2024  Desvinculando de Software
     {
         return $this->belongsToMany(Software::class, 'produto_final_software', 'produto_final_id', 'software_id');
-    }
+    }*/
 }
